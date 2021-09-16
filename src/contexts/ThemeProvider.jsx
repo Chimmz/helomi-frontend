@@ -8,7 +8,6 @@ export const themeContext = createContext();
 
 function ThemeProvider(props) {
    const { appTheme, toggleTheme } = props;
-   console.log(appTheme, toggleTheme);
 
    return (
       <themeContext.Provider value={{ appTheme, toggleTheme }}>

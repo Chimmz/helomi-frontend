@@ -23,9 +23,8 @@ import Signup from './components/pages/Signup';
 import Login from './components/pages/Login';
 import Alerts from './components/alerts/Alerts';
 import VideoCall from './components/videocall/VideoCall';
-
 import './App.scss';
-console.log('Env var: ', process.env);
+
 function HelomiDefaultImg() {
    return (
       <div className='default-img'>
@@ -35,9 +34,9 @@ function HelomiDefaultImg() {
 }
 
 function App({ alerts, user, isOnVideoCall, dispatch }) {
-   useEffect(() => {
-      dispatch(loadUser());
-   }, []);
+   // useEffect(() => {
+   //    dispatch(loadUser());
+   // }, []);
    return (
       <ThemeProvider>
          <SocketProvider>

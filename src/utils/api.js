@@ -1,6 +1,6 @@
 const makeRequest = function ({ path, requestType, body, headers }) {
    const url = process.env.REACT_APP_BACKEND_URL + path;
-   console.log('In makeReq', url);
+
    return fetch(url, { method: requestType, body, headers })
       .then(response => response.json())
       .catch(err => {
@@ -24,6 +24,14 @@ class APIRequest {
          requestType: 'POST',
          body: JSON.stringify({ username, password }),
          headers: { 'Content-Type': 'application/json' }
+      });
+   }
+
+   authenticateToken(authToken) {
+      return makeRequest({
+         path: `/users/auth`,
+         requestType: 'GET',
+         headers: { Authorization: `Bearer ${authToken}` }
       });
    }
 
@@ -67,13 +75,6 @@ class APIRequest {
             Authorization: `Bearer ${authToken}`
          },
          body: form
-      });
-   }
-   authenticateToken(authToken) {
-      return makeRequest({
-         path: `/users/auth`,
-         requestType: 'GET',
-         headers: { Authorization: `Bearer ${authToken}` }
       });
    }
 }
