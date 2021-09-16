@@ -35,9 +35,9 @@ function HelomiDefaultImg() {
 }
 
 function App({ alerts, user, isOnVideoCall, dispatch }) {
-   // useEffect(() => {
-   //    dispatch(loadUser());
-   // }, []);
+   useEffect(() => {
+      dispatch(loadUser());
+   }, []);
    return (
       <ThemeProvider>
          <SocketProvider>
