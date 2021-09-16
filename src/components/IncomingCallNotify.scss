@@ -12,7 +12,7 @@
    box-shadow: 0 0 1rem rgba($color-primary, 0.7),
       0 0 10rem rgba($color-primary, 0.5);
    border: 2px solid $color-primary-darker;
-   padding: 2rem 3rem;
+   padding: 4rem;
    border-radius: 1.5rem;
    z-index: 100;
 
@@ -20,7 +20,7 @@
       color: $color-green;
       font-size: 3rem;
       text-align: center;
-      margin-bottom: 0.7rem;
+      margin-bottom: 1rem;
       transform: rotate(-45deg);
       animation: alert-with-many-colors 1s infinite;
    }

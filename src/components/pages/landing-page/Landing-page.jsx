@@ -42,9 +42,8 @@ const LandingPage = ({ user }) => {
             <div className={`service ${darkTheme && 'd-theme'}`}>
                <span className='service__icon'>
                   <span
-                     class=' iconify'
-                     data-icon='ion:chatbox-ellipses'
-                  ></span>
+                     className=' iconify'
+                     data-icon='ion:chatbox-ellipses'></span>
                </span>
 
                <div className='service__textbox'>
@@ -57,7 +56,7 @@ const LandingPage = ({ user }) => {
             </div>
             <div className={`service ${darkTheme && 'd-theme'}`}>
                <span className='service__icon'>
-                  <span class=' iconify' data-icon='ion:videocam'></span>
+                  <span className=' iconify' data-icon='ion:videocam'></span>
                </span>
 
                <div className='service__textbox'>

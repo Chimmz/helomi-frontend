@@ -31,8 +31,7 @@ class APIRequest {
       return makeRequest({
          path: `/privatemsg/friends/${chatId}/msgs`,
          requestType: 'GET',
-         body: JSON.stringify({ username, password }),
-         headers: { 'Content-Type': 'application/json' }
+         headers: { Authorization: `Bearer ${authToken}` }
       });
    }
 

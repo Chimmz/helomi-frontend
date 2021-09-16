@@ -7,7 +7,7 @@ import { ADD_VIDEOCALL_MSG } from '../redux/videocall/videocall.action.types';
 import { ring } from '../redux/videocall/videocall.action.creators';
 import io from 'socket.io-client';
 
-const socket = io.connect(`/${process.env.REACT_APP_BACKEND_URL}`);
+const socket = io.connect(process.env.REACT_APP_BACKEND_URL);
 
 socket.onAny((evt, ...args) => {
    console.log(`EVENT: ${evt}, ARGS: ${args}`);

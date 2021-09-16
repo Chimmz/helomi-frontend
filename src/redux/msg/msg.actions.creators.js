@@ -16,8 +16,8 @@ export const fetchChatMsgs = (authToken, chatId) => {
    return async dispatch => {
       try {
          const response = await utils.API.fetchChatMsgs(authToken, chatId);
-         console.log(response);
-         const { msgs } = await response.json();
+         // console.log('response', response);
+         const { msgs } = await response;
          dispatch(addFetchedChatMsgs(chatId, msgs));
       } catch (err) {
          console.log('ERR', err);
