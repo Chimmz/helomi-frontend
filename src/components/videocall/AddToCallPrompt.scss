@@ -1,0 +1,43 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.add-attendee-modal {
+   position: fixed;
+   @include absolute-center;
+   bottom: 1.7rem;
+   min-width: 50%;
+   height: 70%;
+   background: $color-primary;
+   box-shadow: 0 0 3rem rgba($color-black, 0.3),
+      0 0 3rem 100vh rgba($color-black, 0.3);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   border-radius: 1rem;
+   padding: 2rem 4rem;
+   z-index: 45;
+
+   &__header {
+      font-size: 2.5rem !important;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 3rem;
+   }
+
+   &__footer {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__close {
+      font-size: 2.7rem;
+      position: absolute;
+      right: 2rem;
+      cursor: pointer;
+      color: $color-gray-darker;
+
+      &:hover {
+         color: $color-black;
+      }
+   }
+}

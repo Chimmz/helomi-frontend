@@ -1,0 +1,116 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
+.home {
+   grid-column: app-start / app-end;
+   grid-row: navbar-end;
+   background: $color-white;
+   height: 100%;
+
+   &__header {
+      min-height: 89vh;
+      display: flex;
+      gap: 5rem;
+      // flex-wrap: wrap;
+      align-items: center;
+      padding: 5vw 5vw;
+      background: $color-primary-darker;
+
+      @include respond(tab-portrait) {
+         flex-direction: column-reverse;
+         padding: 10rem 3rem;
+      }
+
+      &__textbox {
+         align-self: center;
+         max-width: 50%;
+         color: $color-white;
+         font-family: 'DM Sans', sans-serif;
+
+         @include respond(tab-portrait) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+            text-align: center;
+         }
+      }
+      &__heading {
+      }
+      & .parag {
+         color: $color-primary-lightest;
+         max-width: 50ch;
+      }
+      &__picture {
+         flex: 1;
+      }
+      &__img {
+         max-width: 100%;
+         max-height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   &__services {
+      display: flex;
+      @include flex-center;
+      align-items: flex-start;
+      gap: 6rem;
+      flex-wrap: wrap;
+      padding: 10rem 3vw;
+      // padding-block: 9rem;
+      background: $color-white;
+
+      &.d-theme {
+         background: $bg-darker;
+      }
+   }
+}
+
+.service {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   &__icon {
+      font-size: 5rem;
+      display: grid;
+      place-items: center;
+      @include circle(12rem);
+      color: $color-primary-darker;
+      background: rgba($color-primary-lightest, 0.5);
+      background: #eee;
+      margin-bottom: 2.5rem;
+   }
+
+   & .h-4 {
+      margin-bottom: 1rem;
+   }
+
+   & .parag {
+      max-width: 30ch !important;
+      color: $color-gray-dark;
+   }
+
+   &.d-theme .service__icon {
+      background: rgba($color-primary, 0.1);
+   }
+   &.d-theme .h-4 {
+      color: rgba(#fff, 0.6);
+   }
+   &.d-theme .parag {
+      color: rgba(#fff, 0.35);
+   }
+}
+
+.footer {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 5rem;
+   flex-wrap: wrap;
+   font-size: 1.4rem;
+   background: $color-black;
+   color: #adadad;
+   padding: 10vh 7vw;
+}

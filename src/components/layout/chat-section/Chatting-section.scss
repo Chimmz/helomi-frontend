@@ -1,0 +1,51 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
+.chatting-section {
+   grid-column: sidenav-end / -1;
+   grid-row: navbar-end / -1;
+   z-index: 5;
+   display: grid;
+   grid-template-rows: [chat-header-start] max-content [chat-header-end msg-box-start] 1fr [msg-box-end chat-footer-start] max-content [chat-footer-end];
+   position: relative; // Relative for loader which is 'absolute'
+
+   & [class*='styles_scrollable-div'] {
+      grid-row: msg-box-start / msg-box-end;
+      background-color: $color-gray-light;
+
+      &::-webkit-scrollbar {
+         width: 1rem;
+
+         &-track {
+            background: tranparent;
+         }
+      }
+      &:hover {
+         &::-webkit-scrollbar-thumb {
+            background: $color-primary-dark;
+            border-radius: 99rem;
+         }
+      }
+   }
+
+   &.d-theme [class*='styles_scrollable-div'] {
+      background: $color-black;
+
+      &::-webkit-scrollbar {
+         background: $bg-dark;
+
+         &-track {
+            background: $color-black;
+         }
+      }
+      &:hover {
+         &::-webkit-scrollbar-thumb {
+            background: $color-gray-darker;
+         }
+      }
+   }
+
+   & .loader {
+      @include absolute-center;
+   }
+}

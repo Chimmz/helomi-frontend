@@ -1,0 +1,23 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+@import '../../sass/animations.scss';
+
+.overlay {
+   position: fixed;
+   top: 0;
+   right: 0;
+   left: 0;
+   bottom: 0;
+   background: rgba($color-black, 0.5);
+   z-index: 40;
+   // transition: all 1.5s;
+
+   &--transparent {
+      background: transparent;
+      z-index: 30;
+   }
+
+   &--hidden {
+      display: none;
+   }
+}

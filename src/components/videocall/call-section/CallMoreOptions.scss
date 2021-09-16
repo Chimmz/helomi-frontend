@@ -1,0 +1,68 @@
+@import '../../../sass/variables.scss';
+
+.videocall__call {
+   &__more-actions {
+      position: relative;
+
+      & *[class*='ellipsis'] {
+         cursor: pointer;
+         position: relative;
+         z-index: 41;
+      }
+      & .videocall__call__options {
+         font-size: 0.7em;
+         position: absolute;
+         bottom: 100%;
+         right: 100%;
+         background: $color-white;
+         z-index: 41;
+         box-shadow: 0 0 1rem 5px rgba($color-black, 0.2);
+         border-radius: 0.5rem;
+         padding-block: 7px;
+         display: none;
+         transform: scale(0.5);
+         transition: transform 1s;
+
+         &.d-theme {
+            background: $bg-dark;
+
+            & > * {
+               color: $color-gray-light;
+
+               &:hover {
+                  background: rgba($color-white, 0.08);
+               }
+            }
+         }
+      }
+      & .videocall__call__option {
+         display: flex;
+         width: 100%;
+         min-width: max-content;
+         padding: 0.7em 1.5em;
+         cursor: pointer;
+
+         &:hover {
+            background: $color-gray-lighter;
+         }
+
+         & > *:not(:last-child) {
+            margin-right: 1em;
+         }
+      }
+
+      & input[type='checkbox'] {
+         display: none;
+
+         &:checked {
+            & + label .videocall__call__options {
+               display: block;
+               transform: scale(1);
+            }
+         }
+      }
+      &.d-theme {
+         background: $bg-dark;
+      }
+   }
+}

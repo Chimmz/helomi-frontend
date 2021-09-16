@@ -1,0 +1,40 @@
+@import '../../../sass/variables.scss';
+
+.videocall__chats {
+   & .newmsg {
+      position: absolute;
+      bottom: 1rem;
+      inset-inline: 1em;
+
+      &__input {
+         width: 100%;
+         background: $color-white;
+         border: none;
+         padding: 1.2rem 1.7rem;
+         padding-right: 3.5rem;
+         font-size: 1.5rem;
+         border-radius: 999px;
+         border: 1px solid transparent;
+
+         &:focus {
+            border: 1px solid $color-gray-light;
+         }
+      }
+      &__send {
+         position: absolute;
+         top: 50%;
+         right: 3px;
+         transform: translate(-3px, -50%);
+      }
+
+      &.d-theme input {
+         background: $color-black;
+         color: $color-gray-light;
+         border: none;
+
+         &:focus {
+            // background: $bg-dark;
+         }
+      }
+   }
+}

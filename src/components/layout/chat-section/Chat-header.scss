@@ -1,0 +1,139 @@
+@import '../../../sass/variables';
+@import '../../../sass//mixins.scss';
+
+.chatting-section__header {
+   grid-row: chat-header-start / chat-header-end;
+   padding: 1rem 2rem;
+   display: flex;
+   align-items: center;
+   gap: 4rem;
+   background-color: $color-primary-darkest;
+   box-shadow: 0 3px 0.7rem rgba(0, 0, 0, 0.14), 0 3px 2rem rgba(0, 0, 0, 0.2);
+   position: relative;
+   z-index: 10;
+
+   &.d-theme {
+      background-color: $bg-darkest;
+   }
+
+   &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      // box-shadow: 0 3px 0.35rem rgba(0, 0, 0, 0.2);
+   }
+
+   &__userdetails {
+      display: flex;
+      align-items: center;
+   }
+
+   &__userphoto {
+      border-radius: 50%;
+      margin-right: 1.4rem;
+
+      &:hover {
+         cursor: pointer;
+      }
+      & .user-img {
+         transition: all 0.3s;
+      }
+
+      &--zoomed-in {
+         z-index: 51;
+         border-radius: 0 !important;
+         pointer-events: none;
+
+         & .user-img {
+            transform: scale(7);
+            transform-origin: top left;
+         }
+         &:hover {
+            box-shadow: none;
+         }
+      }
+   }
+   &--zoomed-out {
+      & .user-img {
+         transform: scale(1);
+         // transform-origin: bottom right;
+      }
+   }
+
+   &__username {
+      color: $color-gray-light;
+      font-size: 2rem;
+      letter-spacing: 0.7px;
+      font-weight: bold;
+      font-family: 'Mulish', 'sans-serif';
+
+      &.is-online {
+         color: $color-green;
+      }
+   }
+
+   &__nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      &.d-theme {
+         & > * {
+            color: $color-primary;
+
+            &:hover {
+               color: $color-primary-lighter;
+            }
+         }
+      }
+
+      & > * {
+         color: $color-primary-lighter;
+         font-size: 1.7rem;
+         margin-right: 2.5rem;
+         cursor: pointer;
+         transition: all 0.4s;
+
+         &:last-child {
+            // margin-left: auto;
+         }
+         &:hover {
+            color: $color-white;
+         }
+      }
+
+      &__options {
+         position: relative;
+
+         &__icon:hover {
+            position: relative;
+            z-index: 41;
+         }
+
+         &__dropdown {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 5px);
+            background: $color-white;
+            color: $color-gray-dark;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            padding: 5px 0;
+            box-shadow: 0 3px 12px rgba($color-black, 0.2);
+            z-index: 41;
+         }
+
+         &__item {
+            width: max-content;
+            padding: 0.5rem 1.5rem;
+
+            &:hover {
+               background: $color-gray-lighter;
+            }
+         }
+      }
+   }
+}

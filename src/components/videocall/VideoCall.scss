@@ -1,0 +1,40 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+@import '../../sass/animations';
+
+.videocall {
+   &-modal {
+      position: fixed;
+      top: 3rem;
+      left: 3rem;
+      right: 3rem;
+      bottom: 3rem;
+      background: $color-white;
+      padding: 2rem;
+      padding-left: 5rem;
+      display: flex;
+      gap: 2rem;
+      opacity: 0;
+      z-index: 41;
+      transition: all 0.2s;
+
+      &--zoomed-into-view {
+         opacity: 1;
+         border-radius: 2rem;
+         animation: zoom-into-view 0.4s;
+      }
+      &--fullscreen {
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         border-radius: 0;
+      }
+      &.d-theme {
+         background: black;
+         // box-shadow: 0 0 3px 0.5rem rgba($color-primary, 0.5),
+         //    0 0 5px 3rem rgba($color-primary, 0.1);
+         border: 3px solid $color-primary-darkest;
+      }
+   }
+}

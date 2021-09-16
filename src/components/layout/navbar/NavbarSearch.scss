@@ -1,0 +1,124 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+@import '../../../sass/animations.scss';
+
+.navbar {
+   &__search {
+      // flex: 1;
+      flex-basis: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+
+      &__input {
+         width: 100%;
+         height: 95%;
+         font: inherit;
+         font-size: 1.5rem;
+         padding: 1.2rem 2.2rem;
+         border-radius: 2rem;
+         border: none;
+         border: 1px solid rgb(219, 216, 216);
+         background: $color-white;
+
+         &.d-theme {
+            border: none;
+            background: rgba($color-white, 0.18);
+            color: $color-gray-light;
+         }
+
+         &:focus {
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+         }
+
+         &--suggestions-shown {
+            border: none;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+         }
+      }
+      &__suggestions {
+         position: absolute;
+         top: 98%;
+         width: 100%;
+         background: $color-white;
+         border-bottom-left-radius: 2rem;
+         border-bottom-right-radius: 2rem;
+         border-top: 1px solid rgb(219, 216, 216);
+         box-shadow: 0 7px 1.5rem rgba(0, 0, 0, 0.27);
+         overflow: hidden;
+         max-height: 75vh;
+         overflow-y: scroll;
+         z-index: 31;
+         animation: roll-down-suggestions 0.25s ease-in-out;
+
+         &::-webkit-scrollbar {
+            width: 1rem;
+
+            &-track {
+               background: tranparent;
+            }
+         }
+         &:hover {
+            &::-webkit-scrollbar-thumb {
+               background: rgba(#fff, 0.2);
+               border-radius: 99rem;
+            }
+         }
+
+         & > *:not(:last-child) {
+            border-bottom: 1px solid $color-gray-lighter;
+         }
+
+         &.d-theme {
+            background: $bg-dark;
+
+            & > *:not(:last-child) {
+               border-bottom: 1px solid $color-gray-darker;
+            }
+         }
+      }
+      &__suggestion {
+         display: flex;
+         align-items: center;
+         padding: 1rem 1.5rem;
+         color: $color-gray-darkest;
+
+         &.d-theme {
+            color: rgba($color-white, 0.7);
+
+            &:hover {
+               background: $bg-darker;
+            }
+         }
+
+         &__photo {
+            margin-right: 1rem;
+         }
+
+         &__user-info {
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+         }
+
+         &__username {
+            font-size: 1.5em;
+            font-weight: 600;
+         }
+         &__email {
+            color: gray;
+            font-weight: 400;
+         }
+         &__mutual-friends {
+            font-size: 1.2rem;
+            color: gray;
+         }
+
+         &:hover {
+            background: $color-gray-lightest;
+         }
+      }
+   }
+}

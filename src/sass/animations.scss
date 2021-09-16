@@ -1,0 +1,61 @@
+@keyframes rotate {
+   0% {
+      transform: rotate(0);
+   }
+   100% {
+      transform: rotate(700deg);
+   }
+}
+
+@keyframes zoom-into-view {
+   from {
+      transform: scale(0.5);
+   }
+   to {
+      transform: scale(1);
+   }
+}
+
+@keyframes slide-in-from-up-to-center {
+   from {
+      top: 0%;
+   }
+   to {
+      top: 50%;
+   }
+}
+
+@keyframes fade-out {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes alert-with-many-colors {
+   0% {
+      color: $color-primary-darker;
+   }
+   25% {
+      color: $color-primary;
+   }
+   50% {
+      color: $color-primary-lighter;
+   }
+   90% {
+      color: $color-green;
+   }
+}
+
+@keyframes roll-down-suggestions {
+   from {
+      height: 0;
+      top: 0;
+   }
+   to {
+      top: 98%;
+      height: 100%;
+   }
+}

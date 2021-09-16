@@ -1,0 +1,51 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.alerts {
+   position: fixed;
+   top: 1rem;
+   right: 1rem;
+   z-index: 999;
+}
+.alert {
+   font-size: 1.27em;
+   padding: 1rem 2rem;
+   border-radius: 0.6rem;
+   line-height: 1.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1rem;
+   letter-spacing: 0.2px;
+   max-width: 60ch;
+
+   &__remove {
+      width: 1.7rem;
+      height: 1.7rem;
+      font-size: 2rem;
+      opacity: 0.7;
+      @include flex-center;
+      border-radius: 50%;
+
+      &:hover {
+         background-color: rgba($color-white, 0.3);
+         cursor: pointer;
+         opacity: 1;
+      }
+   }
+
+   &--warning {
+      background-color: rgb(245, 210, 146);
+   }
+   &--danger {
+      background-color: rgb(245, 115, 115);
+   }
+   &--success {
+      background-color: rgb(132, 230, 132);
+   }
+   // &--alignleft {
+   // }
+   &:not(:last-child) {
+      margin-bottom: 0.7rem;
+   }
+}

@@ -1,0 +1,54 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
+.navbar__theme-toggler {
+   position: relative;
+   width: 3.2rem;
+   height: 1.3rem;
+   border-radius: 999px;
+   background: $color-primary-lightest;
+   cursor: pointer;
+   transition: background 0.5s;
+   display: flex;
+   align-items: center;
+
+   &__switch {
+      position: absolute;
+      left: 2px;
+      height: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      transform: scale(1.36);
+      background: $color-primary;
+      transition: left 0.5s, transform 0.5s;
+   }
+
+   &::before,
+   &::after {
+      position: absolute;
+      font-size: 1.2rem;
+   }
+
+   &::before {
+      content: 'Light';
+      right: calc(100% + 1rem);
+   }
+   &::after {
+      content: 'Dark';
+      position: absolute;
+      left: calc(100% + 1rem);
+   }
+
+   &.d-theme {
+      background: $color-gray-darker;
+
+      & .navbar__theme-toggler__switch {
+         left: 100%;
+         transform: translateX(calc(-100% - 2px)) scale(1.35);
+      }
+      &::after {
+         // content: attr(data-status);
+         color: $color-gray-dark;
+      }
+   }
+}

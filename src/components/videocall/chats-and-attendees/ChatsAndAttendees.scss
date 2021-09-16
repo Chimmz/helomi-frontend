@@ -1,0 +1,24 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
+.videocall {
+   &__chats-and-attendees {
+      flex: 0 1 33%;
+      height: 100%;
+      border-radius: 1.5rem;
+      background: $soft-blue;
+
+      position: relative;
+
+      &.d-theme {
+         background: $bg-darker;
+      }
+
+      & .heading {
+         color: $color-gray-dark;
+         margin: 2rem 0;
+         text-align: center;
+         font-family: 'Mulish', sans-serif;
+      }
+   }
+}

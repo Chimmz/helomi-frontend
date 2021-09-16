@@ -1,0 +1,72 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+.chatting-section__footer {
+   grid-row: chat-footer-start / chat-footer-end;
+   background-color: $color-gray-light;
+   border-top: 1px solid rgb(180, 174, 174);
+   display: flex;
+   align-items: center;
+   padding: 0 2rem;
+   color: $color-primary;
+
+   &.d-theme {
+      background: $color-black;
+      border-top-color: $bg-darker;
+
+      & .new-msg {
+         &__input {
+            background: rgba($color-white, 0.075);
+            color: $color-gray-light;
+            border-color: transparent;
+
+            &:focus {
+               border: 1px solid $color-gray-darkest;
+            }
+         }
+      }
+   }
+
+   & .icon {
+      @include icon-inset-shadow($color-primary);
+      margin-right: 1rem;
+   }
+
+   & .new-msg {
+      flex: 1;
+      display: flex;
+      @include flex-center;
+      height: 75%;
+      color: $color-primary;
+
+      &__group {
+         flex: 1;
+         justify-self: center;
+         display: flex;
+         height: 100%;
+         position: relative;
+      }
+      &__input {
+         width: 100%;
+         color: $color-gray-darker;
+         border: 1px solid rgb(204, 203, 203);
+         padding: 2.5rem 3rem !important;
+         padding-right: 5rem;
+         border-radius: 999px;
+         transition: width 0.3s;
+
+         & + * {
+            position: absolute;
+            right: 1rem;
+
+            &.icon {
+               align-self: center;
+               @include icon-inset-shadow($color-primary);
+            }
+         }
+         &:focus {
+            border: 1px solid rgb(190, 189, 189);
+         }
+      }
+   }
+}

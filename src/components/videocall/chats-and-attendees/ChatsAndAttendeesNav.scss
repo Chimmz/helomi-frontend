@@ -1,0 +1,67 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
+.videocall {
+   &__chats-and-attendees {
+      &-nav {
+         position: absolute;
+         left: -0.4em;
+         top: 0;
+         bottom: 0;
+         display: flex;
+         flex-direction: column;
+         border: 2px solid $soft-blue;
+         border-right: none;
+         border-radius: 1.5rem;
+         padding: 2em 0;
+         font-size: 1.75rem;
+         color: $color-gray-dark;
+
+         &.d-theme {
+            border: 2px solid $bg-darker;
+            border-right: none; // A must
+         }
+
+         & > * {
+            position: relative;
+            right: 100%;
+            padding: 0.5em;
+            cursor: pointer;
+            border-right: 2px solid $soft-blue;
+
+            &:hover {
+               color: $color-primary;
+               background: $color-gray-lightest;
+            }
+
+            &.chats::before {
+               content: '';
+               position: absolute;
+               top: 0.5em; // Must be same as parents's padding
+               left: 50%;
+               width: 0.5em;
+               height: 0.5em;
+               border-radius: 50%;
+               // background: $color-red;
+               font-size: 1em;
+            }
+            &.attendees {
+               @include flex-center;
+               flex-direction: column;
+
+               & .total {
+                  font-size: 0.6em;
+               }
+               & i {
+                  font-size: 1em;
+               }
+            }
+         }
+
+         & .nav-item--active {
+            border-right: 2px solid $color-primary;
+            color: $color-primary;
+         }
+      }
+   }
+}

@@ -1,0 +1,10 @@
+@import '../../../sass/variables.scss';
+
+.videocall {
+   &__call {
+      flex: 1;
+      display: grid;
+      grid-gap: 4rem;
+      grid-template-rows: 1fr max-content; // allparticipants and call-controls resp
+   }
+}

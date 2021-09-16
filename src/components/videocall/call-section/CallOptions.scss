@@ -1,0 +1,16 @@
+@import '../../../sass/variables.scss';
+
+.videocall__call {
+   &__options {
+   }
+
+   &__option {
+      &[data-label='Add new participant'] {
+         color: $color-green;
+
+         &:hover {
+            color: $color-primary;
+         }
+      }
+   }
+}

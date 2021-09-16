@@ -1,0 +1,122 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.auth {
+   grid-column: app-start / app-end;
+   grid-row: navbar-end / -1;
+   display: grid;
+   align-content: center; // Centralizes vertically
+   gap: 3rem;
+   background-color: $color-primary-darker;
+   z-index: 5;
+
+   &__heading {
+      color: $color-primary-lightest;
+      margin-bottom: 4rem;
+      font-size: 3rem;
+   }
+   &__formgroup {
+      width: max-content;
+      margin: 0 auto;
+      display: flex;
+
+      &__icon {
+         font-size: 1.5rem;
+         margin-right: 1.5rem;
+         align-self: center;
+         order: -1;
+         color: $color-primary-darkest;
+         transition: all 0.8s;
+      }
+   }
+   &__forminput {
+      width: 40vw;
+      padding: 1.5rem 3rem;
+      border: none;
+      border-radius: 99rem;
+      background: rgba($color-white, 0.1);
+      // color: $color-primary-darkest;
+      color: $color-white;
+      font-size: 1.5rem;
+      font-weight: 500;
+      transition: all 0.6s;
+      text-align: inherit;
+
+      &::-webkit-input-placeholder {
+         color: rgba($color-white, 0.5);
+      }
+
+      &:focus {
+         background: $color-primary-light;
+
+         & + .auth__formgroup__icon {
+            color: $color-black;
+         }
+      }
+   }
+   &__forminput[type='password']:placeholder-shown {
+      letter-spacing: 0.3px;
+      font-size: 1.5rem;
+   }
+   &__forminput[type='password'] {
+      letter-spacing: 3px;
+   }
+   &__submit {
+      display: block;
+      width: 40vw;
+      font-size: 1.5rem;
+      padding: 1.5rem 3rem;
+      border-radius: 99rem;
+      transform: translateX(1.5rem);
+      transition: all 0.5s !important;
+      background: rgba($color-black, 0.75);
+      color: $color-primary-light;
+
+      &:hover {
+         background: $color-black;
+      }
+   }
+   &__switch-auth-page {
+      font-size: 1.2rem;
+
+      & a {
+         color: $color-primary-lightest;
+      }
+   }
+
+   &.d-theme {
+      background: $bg-darkest;
+      & .auth {
+         &__heading {
+            color: $color-gray-light;
+         }
+         &__forminput {
+            background: $bg-darker;
+            color: $color-gray-light;
+
+            &:focus {
+               background: $bg-dark;
+
+               & + .auth__formgroup__icon {
+                  color: $color-primary-light;
+               }
+            }
+         }
+         &__submit {
+            background: $color-primary-darkest;
+            color: $color-white;
+
+            &:hover {
+               background: $color-primary-darker;
+            }
+         }
+         &__switch-auth-page {
+            color: $color-gray-dark;
+
+            & a {
+               color: $color-primary;
+            }
+         }
+      }
+   }
+}

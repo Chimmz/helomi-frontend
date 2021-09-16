@@ -1,0 +1,22 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+.chatting-section__messages-box {
+   padding: 1rem 2rem;
+   font-size: 1.2rem;
+   overflow-y: scroll;
+
+   &.d-theme {
+      background: $color-black;
+   }
+
+   &::-webkit-scrollbar {
+      width: 0.7rem;
+   }
+   &:hover {
+      &::-webkit-scrollbar-thumb {
+         background: $color-primary-dark;
+         border-radius: 99rem;
+      }
+   }
+}

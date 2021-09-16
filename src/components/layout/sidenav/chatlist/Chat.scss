@@ -1,0 +1,113 @@
+@import '../../../../sass/variables';
+@import '../../../../sass/mixins';
+
+.chat {
+   width: 98%;
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+   padding: 1rem 2rem 1rem 0.5rem;
+   border-radius: 1rem;
+   margin-bottom: 0.5rem;
+   cursor: pointer;
+   position: relative;
+
+   &__photo {
+      margin-right: 2rem;
+   }
+   &__info {
+      flex: 1;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+   }
+   &__name {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+   }
+   &__lastmessage {
+      font-size: 1.35rem;
+      letter-spacing: 0.2px;
+      max-width: 80%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+   &__time {
+      align-self: flex-start;
+      font-size: 1.2rem;
+      display: none;
+   }
+   &__is-typing {
+      font-weight: bold;
+      font-size: 1.35em;
+      color: rgb(255, 214, 255);
+      letter-spacing: 0.2px;
+   }
+   &:hover {
+      color: $color-black;
+      background-color: rgba($color-primary-lighter, 0.6);
+   }
+
+   &--has-unread-messages {
+      & .chat__info :is(.chat__name, .chat__lastmessage--unread) {
+         font-weight: bold;
+      }
+      & .unread-messages-count {
+         width: 2.5rem;
+         height: 2.5rem;
+         position: absolute;
+         top: 50%;
+         right: 1rem;
+         font-size: 1.3rem;
+         font-weight: bold;
+         @include flex-center;
+         border-radius: 50%;
+         background: rgba($color-white, 0.9);
+         color: $color-red;
+      }
+   }
+   &:not(:last-child) {
+      border-bottom: 1px solid $color-primary-light;
+   }
+   &--active,
+   &--active:hover {
+      background-color: $color-primary-lighter;
+
+      color: $color-white;
+      background-color: $color-primary-darkest !important;
+
+      & .chat__time {
+         color: rgba($color-white, 0.85);
+      }
+   }
+   &--is-online::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1.5rem;
+      transform: translateY(-50%);
+      width: 7px;
+      height: 7px;
+      background: $color-green-bright;
+      border-radius: 50%;
+   }
+
+   &.d-theme {
+      color: rgba(#fff, 0.8);
+
+      &:hover {
+         background: $bg-dark;
+      }
+      &:not(:last-child) {
+         border-bottom: 1px solid $color-gray-darkest;
+      }
+
+      & .chat__lastmessage {
+         color: rgba(#fff, 0.6);
+      }
+      & .chat__time {
+         // color: rgba(#fff, 0.7) !important;
+      }
+   }
+}

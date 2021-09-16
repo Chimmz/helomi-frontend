@@ -1,0 +1,56 @@
+@mixin absolute-center {
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+@mixin flex-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+@mixin icon-inset-shadow($color) {
+   & {
+      &:hover {
+         box-shadow: inset 0 3px 3px 1px rgba($color, 0.6);
+
+         & > * {
+            transform: scale(0.8);
+         }
+      }
+   }
+}
+
+@mixin circle($radius) {
+   width: $radius;
+   height: $radius;
+   border-radius: 50%;
+}
+
+@mixin respond($breakpoint) {
+   @if $breakpoint == phone {
+      @media (max-width: 37.5em) {
+         // 600px
+         @content;
+      }
+   }
+   @if $breakpoint == tab-portrait {
+      @media (max-width: 56.25em) {
+         // 900px
+         @content;
+      }
+   }
+   @if $breakpoint == tab-landscape {
+      @media (max-width: 75em) {
+         // 1200px
+         @content;
+      }
+   }
+   @if $breakpoint == lg-desktop {
+      @media (min-width: 112.5em) {
+         // 1800px
+         @content;
+      }
+   }
+}

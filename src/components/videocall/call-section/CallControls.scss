@@ -1,0 +1,31 @@
+@import '../../../sass/variables.scss';
+
+.videocall__call {
+   &__controls {
+      display: flex;
+      justify-content: center;
+      gap: 6rem;
+      flex-wrap: wrap;
+      color: $color-gray-dark;
+
+      &.d-theme {
+         color: rgb(175, 175, 175);
+      }
+   }
+   &control {
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+
+      &[data-label='End call'] i {
+         transform: rotate(225deg);
+         color: $color-red;
+      }
+      &:nth-of-type(2) {
+         margin-left: auto;
+      }
+      &:nth-of-type(4) {
+         margin-right: auto;
+      }
+   }
+}

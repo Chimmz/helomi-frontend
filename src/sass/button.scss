@@ -1,0 +1,88 @@
+.btn {
+   font: inherit;
+   font-size: 1.4rem;
+   padding: 1em 1.5em;
+   border-radius: 0.4em;
+   border: none;
+   // background: none;
+   transition: all 0.2s;
+
+   &--curved {
+      border-radius: 999px;
+   }
+
+   &:hover,
+   &:active,
+   &:focus {
+      outline: none;
+      cursor: pointer;
+   }
+
+   &-primary {
+      background: $color-primary-darker;
+      color: $color-white;
+
+      &:hover {
+         background: $color-primary-darkest;
+      }
+   }
+
+   &-white {
+      background: $color-white;
+      color: $color-primary;
+
+      &:hover {
+         color: $color-primary-darkest;
+      }
+   }
+   &-black {
+      background: rgba(#000, 0.85);
+      color: $color-primary-lighter;
+
+      &:hover {
+         background: $color-black;
+         color: $color-white;
+      }
+   }
+   &-green {
+      background: $color-green;
+      color: $color-white;
+
+      &:hover {
+         background: rgba($color-green, 0.9);
+      }
+   }
+   &-red {
+      background: $color-red;
+      color: $color-white;
+
+      &:hover {
+         background: rgba($color-red, 0.9);
+      }
+   }
+
+   &-text-white {
+      color: $color-white;
+   }
+
+   &--rounded {
+      border-radius: 9999px;
+   }
+
+   &-md {
+      font-size: 1.3rem;
+      padding: 0.6em 1em;
+      border-radius: 999px;
+   }
+   &-lg {
+      font-size: 1.9rem;
+   }
+}
+
+.d-theme .btn-primary {
+   background: $color-primary-darkest;
+
+   &:hover {
+      background: $color-primary-darker;
+   }
+}

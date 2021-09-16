@@ -1,0 +1,11 @@
+@import '../../../sass/variables.scss';
+
+.videocall__call {
+   &__footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 2rem;
+      color: $color-gray-darker;
+      padding: 0 5px;
+   }
+}

@@ -1,0 +1,45 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+@import '../../sass/animations.scss';
+
+.loader {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   &__spinner {
+      border-radius: 50%;
+      border: 2px solid $color-primary-lighter;
+      border-top: 2px solid $color-primary;
+      border-right: 2px solid $color-primary;
+      margin-bottom: 1.5rem;
+      aspect-ratio: 1;
+      animation: rotate forwards infinite 5s;
+
+      &--lg {
+         width: 5rem;
+      }
+      &--md {
+      }
+   }
+
+   &__msg {
+      position: absolute;
+      top: 100%;
+      width: max-content;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+
+      &--lg {
+         font-size: 1.7rem;
+      }
+   }
+
+   &.d-theme {
+      color: $color-white !important;
+      &__msg {
+         color: $color-white;
+      }
+   }
+}

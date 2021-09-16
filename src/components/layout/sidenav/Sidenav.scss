@@ -1,0 +1,25 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+.allchats {
+   grid-column: sidenav-start / sidenav-end;
+   grid-row: navbar-end / -1;
+   background-color: $color-primary-darker;
+
+   &.d-theme {
+      background-color: $bg-darkest;
+   }
+
+   & .search-section {
+      height: 15%;
+      @include flex-center;
+   }
+
+   &.d-theme {
+      background-color: $bg-darkest;
+
+      // & .allchats .search-section {
+      //    background: #202020;
+      // }
+   }
+}

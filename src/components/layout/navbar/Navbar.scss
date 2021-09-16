@@ -1,0 +1,72 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
+.navbar {
+   grid-column: app-start / app-end;
+   grid-row: navbar-start / navbar-end;
+   background: $color-white;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   // gap: 3rem;
+   padding: 0 5rem;
+
+   &.d-theme {
+      background-color: $color-black;
+   }
+
+   &__logo {
+      font-size: 3rem;
+      color: $color-primary;
+      font-family: Capriola;
+   }
+
+   &__links {
+      display: flex;
+      align-items: center;
+      width: 35%;
+   }
+   &__link {
+      flex: 1;
+      min-width: max-content;
+      height: 95%;
+      @include flex-center;
+      flex-direction: column;
+      padding: 0 2rem;
+      border-radius: 1.3rem;
+      color: $color-gray-dark;
+
+      &__icon {
+         font-size: 4rem;
+         margin-bottom: 0.2rem;
+      }
+      &__label {
+         font-size: 1.5rem;
+         letter-spacing: 0.2px;
+         font-weight: 300;
+      }
+
+      &:not(:last-child) {
+         margin-right: 5rem;
+      }
+      &:hover {
+         cursor: pointer;
+         background: $color-gray-lighter;
+
+         & > * {
+            color: $color-primary;
+         }
+      }
+
+      &--active {
+         background: $soft-blue;
+
+         &:hover {
+            background: $soft-blue !important;
+         }
+         & > * {
+            color: $color-primary;
+         }
+      }
+   }
+}

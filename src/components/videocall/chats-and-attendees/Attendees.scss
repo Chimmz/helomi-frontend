@@ -1,0 +1,77 @@
+@import '../../../sass/variables';
+@import '../../../sass/utils';
+
+.videocall {
+   &__attendees {
+      height: 90%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      & > * {
+         padding: 0.7em 0;
+
+         &:not(:last-child) {
+            border-bottom: 1px solid $color-primary-lightest;
+         }
+      }
+      &::-webkit-scrollbar {
+         width: 0.7rem;
+         display: none;
+      }
+      &:hover {
+         &::-webkit-scrollbar-thumb {
+            background: $color-white;
+            border-radius: 99rem;
+            margin: 5rem;
+         }
+      }
+   }
+
+   &__attendee {
+      display: flex;
+      justify-content: space-between;
+
+      &__details {
+         display: flex;
+         align-items: center;
+      }
+
+      & .host-actions {
+         min-height: 100%;
+         max-height: 100%;
+         display: none;
+
+         & .btn {
+            height: 100%;
+            padding: none !important;
+         }
+      }
+
+      &__pic {
+         margin-right: 1.2em;
+      }
+
+      &__name {
+         font-size: 1.5em;
+         margin-right: auto;
+      }
+
+      &__status-in-call {
+         display: flex;
+         align-items: center;
+
+         & > * {
+            font-size: 1.7em;
+            position: relative;
+
+            &:not(:last-child) {
+               margin-right: 1.2em;
+            }
+         }
+      }
+
+      &:hover .host-actions {
+         display: inline-block;
+      }
+   }
+}

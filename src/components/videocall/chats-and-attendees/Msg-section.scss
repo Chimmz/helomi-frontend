@@ -1,0 +1,33 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
+.videocall {
+   &__chats {
+      height: 90%;
+
+      & [class*='styles_scrollable-div'] {
+         padding: 2rem 3rem;
+
+         &::-webkit-scrollbar {
+            width: 1rem;
+
+            &-track {
+               background: tranparent;
+            }
+         }
+         &:hover {
+            &::-webkit-scrollbar-thumb {
+               background: rgba(#000, 0.15);
+               border-radius: 99rem;
+            }
+         }
+      }
+      &.d-theme {
+         & [class*='styles_scrollable-div']:hover {
+            &::-webkit-scrollbar-thumb {
+               background: rgba(#fff, 0.2);
+            }
+         }
+      }
+   }
+}

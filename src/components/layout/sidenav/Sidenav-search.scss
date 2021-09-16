@@ -1,0 +1,123 @@
+@import '../../../sass/variables';
+@import '../../../sass/mixins';
+
+.search-section {
+   height: 15%;
+   @include flex-center;
+
+   &.d-theme {
+      // background: $bg-darker;
+      // background-color: $color-black;
+   }
+}
+
+.allchats {
+   &__search {
+      width: 75%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      background: rgba($color-white, 0.2);
+      border-radius: 1000rem;
+      position: relative;
+
+      &-icon {
+         position: absolute;
+         left: 90%;
+         color: $color-white;
+         opacity: 0.5;
+         font-size: 1.5rem;
+         z-index: 3;
+         transition: all 0.5s;
+      }
+
+      &__input {
+         flex: 1;
+         background: transparent;
+         border: none;
+         padding: 0.7rem 2rem;
+         font: inherit;
+         letter-spacing: 0.7px;
+         font-weight: 300;
+         font-size: 1.35rem;
+         color: $color-white;
+         transition: all 0.2s 0.3s;
+
+         &::-webkit-input-placeholder {
+            color: $color-primary-lightest;
+            font-weight: 400;
+         }
+         &:focus {
+            padding-inline: 5rem;
+
+            & + .allchats__search-icon {
+               left: 2rem;
+            }
+         }
+         &.d-theme {
+            background: $bg-darker;
+            color: $color-gray-light;
+            border-radius: 999px;
+
+            &::-webkit-input-placeholder {
+               color: $color-gray-dark;
+            }
+         }
+      }
+
+      &__results {
+         max-height: 50vh;
+         overflow-y: scroll;
+         position: absolute;
+         top: 105%;
+         left: 0;
+         width: 100%;
+         border-radius: 0.7rem;
+         background: rgba($color-white, 0.95);
+         box-shadow: 0 5px 5px rgba($color-black, 0.2);
+         z-index: 1;
+         font-size: 1.4rem;
+         padding: 0.4rem;
+
+         &::-webkit-scrollbar {
+            width: 0.7rem;
+         }
+         &:hover {
+            &::-webkit-scrollbar-thumb {
+               background: rgba($color-white, 0.5);
+               border-radius: 99rem;
+            }
+         }
+
+         &.d-theme {
+            background: $bg-darker;
+
+            & .allchats__search__results__result {
+               color: $color-white;
+            }
+         }
+
+         &__result {
+            padding: 1rem 1.5rem;
+            @include flex-center;
+            justify-content: flex-start;
+            border-radius: 5px;
+            color: $color-gray-darkest;
+            cursor: pointer;
+
+            &:hover {
+               background: $color-gray-light;
+            }
+
+            &.d-theme {
+               // background: $color-black;
+               // color: $color-gray-light;
+
+               &:hover {
+                  background: rgba($color-white, 0.1);
+               }
+            }
+         }
+      }
+   }
+}

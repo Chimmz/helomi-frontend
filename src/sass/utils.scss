@@ -1,0 +1,133 @@
+.pic {
+   border-radius: 50% !important;
+
+   &--xlg {
+      width: 25rem !important;
+      height: 25rem !important;
+   }
+
+   &--lg {
+      width: 10rem !important;
+      height: 10rem !important;
+   }
+   &--md {
+      width: 7rem !important;
+      height: 7rem !important;
+   }
+   &--sm {
+      width: 4rem !important;
+      height: 4rem !important;
+   }
+   &--xsm {
+      width: 2rem !important;
+      height: 2rem !important;
+   }
+}
+.remove-bullets {
+   list-style: none !important;
+}
+
+.u-mgb-sm {
+   margin-bottom: 1rem !important;
+}
+.u-mgb-sm {
+   margin-bottom: 1.5rem !important;
+}
+.u-mgb-md {
+   margin-bottom: 2.5rem !important;
+}
+.u-mgb-lg {
+   margin-bottom: 4rem !important;
+}
+.u-text-center {
+   text-align: center !important;
+}
+.u-full-width {
+   width: 100%;
+   display: block;
+}
+.u-hidden {
+   display: none;
+}
+.u-block-center {
+   margin: 0 auto;
+}
+.is-muted {
+   // color: $color-red;
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 4px;
+      height: 100%;
+      background: $color-red;
+      border-right: 1px solid $color-white;
+      border-left: 1px solid $color-white;
+      transform: rotate(45deg) translateX(50%) scaleY(1.5);
+   }
+}
+*.d-theme .is-muted::before {
+   background: rgb(255, 0, 0);
+   border-right-color: $color-gray-darker;
+   border-left-color: $color-gray-darker;
+}
+
+.with-label {
+   position: relative;
+   cursor: pointer;
+
+   &::after {
+      content: attr(data-label);
+      font-family: 'Poppins', sans-serif;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) scale(0.2);
+      width: max-content;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      background: $color-white;
+      color: $color-gray-darkest;
+      font-weight: 400;
+      box-shadow: 0 0 1rem 0 rgba($color-black, 0.2);
+      visibility: hidden;
+      transition: transform 0.2s;
+   }
+
+   &:hover::after {
+      visibility: visible;
+      z-index: 10;
+   }
+
+   &-at-top {
+      &::after {
+         bottom: 100%;
+      }
+      &:hover::after {
+         transform: translateX(-50%) scale(1) translateY(-2rem);
+      }
+   }
+   &-at-bottom {
+      &::after {
+         top: 100%;
+      }
+      &:hover::after {
+         transform: translateX(-50%) scale(1) translateY(2rem);
+      }
+   }
+}
+*.d-theme .with-label::after {
+   background: #bebebe;
+   color: $color-black;
+}
+
+.slide-in-from-up-to-center {
+   animation: slide-in-from-up-to-center 0.5s;
+}
+
+.fade-out {
+   animation: fade-out 0.5s;
+}
