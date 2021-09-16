@@ -220,23 +220,37 @@ function PeerToPeerCall(props) {
    }
 
    const getUserMediaStream = function getUserMedia() {
-      const getUserMedia = (
-         navigator.getUserMedia ||
-         navigator.webkitGetUserMedia ||
-         navigator.mozGetUserMedia ||
-         navigator.msGetUserMedia
-      ).bind(window.navigator);
+      return navigator.mediaDevices
+         .getUserMedia({ audio: true, video: true })
+         .then(stream => {
+            console.log('stream: ', stream);
+            setLocalStream(stream);
+            return stream;
+         })
+         .catch(err => {
+            alert(err);
+            reject(err);
+         });
+      // const getUserMedia = (
+      //    navigator.getUserMedia ||
+      //    navigator.webkitGetUserMedia ||
+      //    navigator.mozGetUserMedia ||
+      //    navigator.msGetUserMedia
+      // ).bind(window.navigator);
 
-      return new Promise(function (resolve, reject) {
-         getUserMedia(
-            { audio: true, video: true },
-            stream => {
-               setLocalStream(stream);
-               resolve(stream);
-            },
-            err => reject(err)
-         );
-      });
+      // return new Promise(function (resolve, reject) {
+      //    getUserMedia(
+      //       { audio: true, video: true },
+      //       stream => {
+      //          setLocalStream(stream);
+      //          resolve(stream);
+      //       },
+      //       err => {
+      //          alert(err);
+      //          reject(err);
+      //       }
+      //    );
+      // });
    };
 
    const makeCall = async function () {
