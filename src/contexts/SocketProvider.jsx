@@ -3,7 +3,10 @@ import React, { createContext } from 'react';
 import store from '../redux/store';
 import { addNewMsg } from '../redux/msg/msg.actions.creators';
 import { setSomeoneIsTyping } from '../redux/chat/chat.action.creators';
-import { ADD_VIDEOCALL_MSG } from '../redux/videocall/videocall.action.types';
+import {
+   ADD_VIDEOCALL_MSG,
+   SET_RTC_CANDIDATE
+} from '../redux/videocall/videocall.action.types';
 import { ring } from '../redux/videocall/videocall.action.creators';
 import io from 'socket.io-client';
 
@@ -36,11 +39,11 @@ function socketEmitPrivateMsgOut({ from, sendTo: receiver, text, sentAt }) {
 socket.on('incoming-videocall', function (callDetails) {
    const { roomId, caller, offer } = callDetails;
    store.dispatch(ring(caller, roomId, offer));
+});
 
-   // socket.on('candidate-in', function (candidate) {
-   //    console.log('Candidate sent in');
-   //    store.dispatch({ type: SET_RTC_CANDIDATE, payload: { candidate } });
-   // });
+socket.on('candidate-in', function (candidate) {
+   console.log('Candidate sent in: ', candidate);
+   store.dispatch({ type: SET_RTC_CANDIDATE, payload: candidate });
 });
 
 socket.on('incoming-video-call-msg', msg => {

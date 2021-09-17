@@ -9,7 +9,8 @@ import {
    selectCallingWho,
    selectRtcCandidate,
    selectRtcOffer,
-   selectVideoChatRoomId
+   selectVideoChatRoomId,
+   selectCallConnected
 } from '../../../redux/videocall/videocall.selectors';
 import {
    CALL_CONNECTED,
@@ -17,8 +18,6 @@ import {
    END_CALL,
    SET_RTC_ANSWER
 } from '../../../redux/videocall/videocall.action.types';
-
-import { selectCallConnected } from '../../../redux/videocall/videocall.selectors';
 
 import { socketContext } from '../../../contexts/SocketProvider';
 import { v4 as uuidv4 } from 'uuid';
@@ -28,7 +27,8 @@ import './ParticpantInCall.scss';
 
 function PeerToPeerCall(props) {
    // prettier-ignore
-   const { caller, callingWho, videoChatRoomId, currentUser, dispatch } = props;
+   const { caller, callingWho, videoChatRoomId, currentUser,rtcCandidate,  dispatch } = props;
+   console.log(rtcCandidate);
    console.log('caller, callingWho', caller, callingWho);
    const { socket } = useContext(socketContext);
    const localVideoRef = useRef();
@@ -40,7 +40,7 @@ function PeerToPeerCall(props) {
       _iceConfig = {
          iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
       };
-      constructor({ isInitiator, stream }) {
+      constructor({ isInitiator }) {
          this.connection = new RTCPeerConnection(this._iceConfig);
          this.isInitiator = isInitiator || false;
          this.init();
@@ -48,7 +48,7 @@ function PeerToPeerCall(props) {
 
       init() {
          this.connection.onnegotiationneeded = this.handleNegotiationNeeded;
-         this.connection.onicecandidate = this.handleIceCandidate;
+         this.connection.onicecandidate = this.handleServerIceCandidate;
          this.connection.ontrack = this.handleTrackEvent;
          this.connection.onremovetrack = this.handleRemoveTrack;
          this.connection.oniceconnectionstatechange = this.handleIceConnectionStateChange;
@@ -85,7 +85,7 @@ function PeerToPeerCall(props) {
          }
       };
 
-      handleIceCandidate = ev => {
+      handleServerIceCandidate = ev => {
          if (!ev.candidate) return;
          console.log('Getting ice candidate from server...', ev.candidate);
          // console.log(this.connection);
@@ -94,6 +94,10 @@ function PeerToPeerCall(props) {
             to: this.isInitiator ? callingWho : caller,
             candidate: ev.candidate
          });
+         console.log(
+            'And sending it to: ',
+            this.isInitiator ? callingWho : caller
+         );
       };
 
       handleIncomingCandidate = candidate => {
@@ -271,7 +275,7 @@ function PeerToPeerCall(props) {
       peerConn.connectStreamToVideo(stream);
       peerConn.createRtcAnswer();
 
-      socket.on('candidate-in', peerConn.handleIncomingCandidate);
+      peerConn.handleIncomingCandidate(rtcCandidate)
       socket.on('click-end-call-btn', peerConn.handleCloseVideoCall);
       socket.on('user-left-call', peerConn.handleCloseVideoCall);
    };

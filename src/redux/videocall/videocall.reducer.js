@@ -67,7 +67,7 @@ const videocallReducer = function (state = initState, action) {
       case videocallActions.SET_RTC_CANDIDATE:
          return {
             ...state,
-            call: { ...state.call, candidate: payload.candidate }
+            call: { ...state.call, candidate: payload }
          };
 
       case videocallActions.ACCEPT_CALL:
